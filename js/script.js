@@ -40,3 +40,20 @@ function isInArray(mine,numero){
 var mine = generaNumeri(numeroMine,1,100);
 
 console.log("[DEBUG] ---> controllo array " + mine.sort(function(a,b){return a-b;}));
+
+var punteggio = 0;
+//Chiedo all'untente di inserire 84 un numero a suo piacimento
+for(var i = 0 ; i < 84; i ++, punteggio ++){
+  var numeroInserito = -1;
+  //Chiedo il numero e controllo che sia del range corretto
+  while(numeroInserito < 1 || numeroInserito > 100){
+    numeroInserito = parseInt(prompt("Inserire un numero compreso tra 1 e 100"));
+  }
+
+  if(isInArray(mine,numeroInserito) == true){
+    console.log("+++++++++++++++++++++++++++++++ HAI PERSOOOOOOO +++++++++++++++++++++++++++++++");
+    break;
+  }
+}
+
+console.log("SCORE: " + punteggio);
