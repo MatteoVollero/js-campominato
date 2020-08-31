@@ -36,24 +36,78 @@ function isInArray(mine,numero){
   }
 }
 
-//Genero i numeri
-var mine = generaNumeri(numeroMine,1,100);
-
-console.log("[DEBUG] ---> controllo array " + mine.sort(function(a,b){return a-b;}));
-
 var punteggio = 0;
-//Chiedo all'untente di inserire 84 un numero a suo piacimento
-for(var i = 0 ; i < 84; i ++, punteggio ++){
-  var numeroInserito = -1;
-  //Chiedo il numero e controllo che sia del range corretto
-  while(numeroInserito < 1 || numeroInserito > 100){
-    numeroInserito = parseInt(prompt("Inserire un numero compreso tra 1 e 100"));
-  }
 
-  if(isInArray(mine,numeroInserito) == true){
-    console.log("+++++++++++++++++++++++++++++++ HAI PERSOOOOOOO +++++++++++++++++++++++++++++++");
-    break;
-  }
+var difficolta = parseInt(prompt("Inserisci una difficolta 0(facile) 1(normale) 2(difficile)"));
+
+while(difficolta < 1 || difficolta > 2){
+  alert("Hai inserito un numero sbagliato :(");
+  difficolta = parseInt(prompt("Inserisci una difficolta 0(facile) 1(normale) 2(difficile)"));
+}
+
+switch(difficolta){
+  case 0:
+          //Genero i numeri
+          var mine = generaNumeri(numeroMine,1,100);
+          console.log("[DEBUG] ---> controllo array " + mine.sort(function(a,b){return a-b;}));
+          //Chiedo all'untente di inserire 84 un numero a suo piacimento
+          for(var i = 0 ; i < 84; i ++, punteggio ++){
+            var numeroInserito = -1;
+            //Chiedo il numero e controllo che sia del range corretto
+            while(numeroInserito < 1 || numeroInserito > 100){
+              numeroInserito = parseInt(prompt("Inserire un numero compreso tra 1 e 100"));
+            }
+
+            //Tramite questa funzione verifico se il giocatore effettua un punto o perde
+            if(isInArray(mine,numeroInserito) == true){
+              console.log("+++++++++++++++++++++++++++++++ HAI PERSOOOOOOO +++++++++++++++++++++++++++++++");
+              break;
+            }
+          }
+          console.log("+++++++++++++++++++++++++++++++ YOU WON +++++++++++++++++++++++++++++++");
+          break;
+
+  case 1:
+          //Genero i numeri
+          var mine = generaNumeri(numeroMine,1,80);
+          console.log("[DEBUG] ---> controllo array " + mine.sort(function(a,b){return a-b;}));
+          //Chiedo all'untente di inserire 84 un numero a suo piacimento
+          for(var i = 0 ; i < (80-16); i ++, punteggio ++){
+            var numeroInserito = -1;
+            //Chiedo il numero e controllo che sia del range corretto
+            while(numeroInserito < 1 || numeroInserito > 100){
+              numeroInserito = parseInt(prompt("Inserire un numero compreso tra 1 e 100"));
+            }
+
+            //Tramite questa funzione verifico se il giocatore effettua un punto o perde
+            if(isInArray(mine,numeroInserito) == true){
+              console.log("+++++++++++++++++++++++++++++++ HAI PERSOOOOOOO +++++++++++++++++++++++++++++++");
+              break;
+            }
+          }
+          console.log("+++++++++++++++++++++++++++++++ YOU WON +++++++++++++++++++++++++++++++");
+          break;
+
+  case 2:
+          //Genero i numeri
+          var mine = generaNumeri(numeroMine,1,50);
+          console.log("[DEBUG] ---> controllo array " + mine.sort(function(a,b){return a-b;}));
+          //Chiedo all'untente di inserire 84 un numero a suo piacimento
+          for(var i = 0 ; i < (50-16); i ++, punteggio ++){
+            var numeroInserito = -1;
+            //Chiedo il numero e controllo che sia del range corretto
+            while(numeroInserito < 1 || numeroInserito > 100){
+              numeroInserito = parseInt(prompt("Inserire un numero compreso tra 1 e 100"));
+            }
+
+            //Tramite questa funzione verifico se il giocatore effettua un punto o perde
+            if(isInArray(mine,numeroInserito) == true){
+              console.log("+++++++++++++++++++++++++++++++ HAI PERSOOOOOOO +++++++++++++++++++++++++++++++");
+              break;
+            }
+          }
+          console.log("+++++++++++++++++++++++++++++++ YOU WON +++++++++++++++++++++++++++++++");
+          break;
 }
 
 console.log("SCORE: " + punteggio);
